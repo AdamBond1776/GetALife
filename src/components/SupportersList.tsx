@@ -23,9 +23,11 @@ export function SupportersList({ supporters, loading }: SupportersListProps) {
 
   if (supporters.length === 0) {
     return (
-      <div style={styles.container}>
-        <h2 style={styles.heading}>Recent Supporters</h2>
-        <p style={styles.empty}>Be the first to support this project!</p>
+      <div style={styles.emptyContainer}>
+        <svg style={styles.heartIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+        <p style={styles.emptyText}>Be the first to support this project!</p>
       </div>
     );
   }
@@ -60,43 +62,56 @@ export function SupportersList({ supporters, loading }: SupportersListProps) {
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    backgroundColor: '#111827',
-    borderRadius: '20px',
+    maxWidth: '680px',
+    margin: '0 auto',
+    backgroundColor: '#ffffff',
     padding: '48px',
-    border: '2px solid #1f2937',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+    borderRadius: '16px',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
   },
   heading: {
-    fontSize: '36px',
-    fontWeight: '800',
-    marginBottom: '40px',
-    color: '#ffffff',
-    textAlign: 'center',
-    letterSpacing: '-0.02em',
+    fontSize: '32px',
+    fontWeight: '700',
+    color: '#1e293b',
+    margin: 0,
+    marginBottom: '32px',
   },
   loading: {
     textAlign: 'center',
-    color: '#9ca3af',
-    fontSize: '18px',
+    color: '#64748b',
+    fontSize: '16px',
     padding: '40px',
   },
-  empty: {
-    textAlign: 'center',
-    color: '#9ca3af',
+  emptyContainer: {
+    maxWidth: '680px',
+    margin: '0 auto',
+    backgroundColor: '#ffffff',
+    padding: '60px 48px',
+    borderRadius: '16px',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    textAlign: 'center' as const,
+  },
+  heartIcon: {
+    width: '80px',
+    height: '80px',
+    color: '#cbd5e1',
+    margin: '0 auto 24px',
+  },
+  emptyText: {
     fontSize: '18px',
-    padding: '40px',
+    color: '#64748b',
+    margin: 0,
   },
   list: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as const,
     gap: '20px',
   },
   supporter: {
-    backgroundColor: '#1f2937',
-    borderRadius: '14px',
+    backgroundColor: '#f8fafc',
+    borderRadius: '12px',
     padding: '24px',
-    border: '2px solid #374151',
-    transition: 'all 0.2s',
+    border: '1px solid #e2e8f0',
   },
   supporterHeader: {
     display: 'flex',
@@ -105,24 +120,24 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '8px',
   },
   name: {
-    fontSize: '20px',
-    fontWeight: '700',
-    color: '#ffffff',
+    fontSize: '18px',
+    fontWeight: '600',
+    color: '#1e293b',
   },
   amount: {
-    fontSize: '20px',
-    fontWeight: '800',
-    color: '#ef4444',
+    fontSize: '18px',
+    fontWeight: '700',
+    color: '#d97706',
   },
   message: {
     fontSize: '16px',
-    color: '#d1d5db',
-    lineHeight: '150%',
+    color: '#475569',
+    lineHeight: '1.5',
     marginBottom: '8px',
-    fontStyle: 'italic',
+    marginTop: '8px',
   },
   date: {
     fontSize: '14px',
-    color: '#6b7280',
+    color: '#94a3b8',
   },
 };

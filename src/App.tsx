@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { supabase } from './lib/supabase';
 import { UrgentBanner } from './components/UrgentBanner';
-import { VideoSection } from './components/VideoSection';
-import { ProjectInfo } from './components/ProjectInfo';
-import { FundingProgress } from './components/FundingProgress';
-import { ContributionForm } from './components/ContributionForm';
+import { HeroSection } from './components/HeroSection';
+import { AboutCampaign } from './components/AboutCampaign';
+import { ComingSoon } from './components/ComingSoon';
+import { LearnMore } from './components/LearnMore';
+import { SupportSection } from './components/SupportSection';
 import { SupportersList } from './components/SupportersList';
+import { Footer } from './components/Footer';
 
 interface Supporter {
   id: string;
@@ -25,10 +27,10 @@ export default function App() {
   }, []);
 
   const loadSupporters = async () => {
-    const { data } = await (supabase
+    const { data } = await supabase
       .from('supporters')
       .select('*')
-      .order('created_at', { ascending: false }) as any);
+      .order('created_at', { ascending: false });
 
     if (data) {
       setSupporters(data);
@@ -38,33 +40,37 @@ export default function App() {
     setLoading(false);
   };
 
+  const scrollToSupport = () => {
+    const supportSection = document.getElementById('support-section');
+    if (supportSection) {
+      supportSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div style={styles.container}>
       <UrgentBanner />
 
-      <main style={styles.main}>
-        <div style={styles.content}>
-          <h1 style={styles.title}>The American 300</h1>
-          <p style={styles.subtitle}>Help Finish This Critical Book Project</p>
+      <HeroSection currentAmount={totalRaised} onJoinClick={scrollToSupport} />
 
-          <VideoSection />
+      <AboutCampaign />
 
-          <ProjectInfo />
-
-          <FundingProgress totalRaised={totalRaised} goal={50000} />
-
-          <ContributionForm onContributionComplete={loadSupporters} />
-
-          <SupportersList supporters={supporters} loading={loading} />
+      <div style={styles.aboutContainer}>
+        <div style={styles.aboutWrapper}>
+          <ComingSoon />
+          <LearnMore />
         </div>
-      </main>
+      </div>
 
-      <footer style={styles.footer}>
-        <p>The American 300 Book Project - {new Date().getFullYear()}</p>
-        <p style={styles.footerNote}>
-          Direct contributions via Cash App, Venmo, or Zelle accepted
-        </p>
-      </footer>
+      <div id="support-section">
+        <SupportSection onSupportAdded={loadSupporters} />
+      </div>
+
+      <div style={styles.supportersSection}>
+        <SupportersList supporters={supporters} loading={loading} />
+      </div>
+
+      <Footer />
     </div>
   );
 }
@@ -72,45 +78,22 @@ export default function App() {
 const styles: Record<string, React.CSSProperties> = {
   container: {
     minHeight: '100vh',
-    backgroundColor: '#0a0a0a',
-    color: '#ffffff',
+    backgroundColor: '#f8fafc',
   },
-  main: {
-    paddingBottom: '80px',
+  aboutContainer: {
+    padding: '0 24px 60px',
+    backgroundColor: '#f8fafc',
   },
-  content: {
-    maxWidth: '1200px',
+  aboutWrapper: {
+    maxWidth: '680px',
     margin: '0 auto',
-    padding: '48px 24px',
+    backgroundColor: '#ffffff',
+    padding: '48px',
+    borderRadius: '16px',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
   },
-  title: {
-    fontSize: '64px',
-    fontWeight: '900',
-    textAlign: 'center',
-    margin: '48px 0 20px',
-    background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    letterSpacing: '-0.03em',
-    textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-  },
-  subtitle: {
-    fontSize: '26px',
-    textAlign: 'center',
-    color: '#d1d5db',
-    marginBottom: '64px',
-    fontWeight: '500',
-    letterSpacing: '-0.01em',
-  },
-  footer: {
-    backgroundColor: '#000000',
-    borderTop: '1px solid #1f2937',
-    padding: '32px 20px',
-    textAlign: 'center',
-    color: '#6b7280',
-  },
-  footerNote: {
-    marginTop: '8px',
-    fontSize: '14px',
+  supportersSection: {
+    padding: '60px 24px',
+    backgroundColor: '#f8fafc',
   },
 };

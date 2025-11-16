@@ -1,11 +1,18 @@
+import { campaignContent } from '../data/campaignContent';
+
 export function UrgentBanner() {
   return (
     <div style={styles.banner}>
-      <div style={styles.content}>
-        <div style={styles.urgentLabel}>⚠ URGENT ⚠</div>
-        <p style={styles.message}>
-          <strong>TIME-SENSITIVE:</strong> I may go to jail before finishing this book, as my local police and state-funded school are covering up a coordinated attack: kids from two schools planned a group beat-down of a girl for viral fame after she bullied an 11th-grade boy. I intervened, saving her from being dragged down to the ground by her hair while 6 kids swung at her—I threw no punches, but was grabbed from behind and assaulted. I got her to safety and had my daughters call 911 from the car. Instead of addressing the violence and my assault, Newport Police and the school emailed parents claiming a fight between two kids, handled by security/police with no other incident. They arrested me to silence the truth—likely offering, "Drop charges, we'll drop yours." The kid who punched me and his friend who orchestrated it still walk the halls with my daughter, fueling viral violence trends with zero accountability. I'm turning my hobby into this book to expose it all. Support me now for legal representation, to finish before it's too late, and to empower America to fight corruption threatening us all. With you, we hold them accountable!
-        </p>
+      <div style={styles.container}>
+        <div style={styles.titleWrapper}>
+          <svg style={styles.icon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <h2 style={styles.title}>{campaignContent.urgentBanner.title}</h2>
+        </div>
+        <p style={styles.text}>{campaignContent.urgentBanner.content}</p>
       </div>
     </div>
   );
@@ -13,36 +20,37 @@ export function UrgentBanner() {
 
 const styles: Record<string, React.CSSProperties> = {
   banner: {
-    backgroundColor: '#dc2626',
-    borderBottom: '4px solid #991b1b',
-    padding: '32px 20px',
-    position: 'sticky',
-    top: 0,
-    zIndex: 1000,
-    boxShadow: '0 4px 20px rgba(220, 38, 38, 0.6)',
+    backgroundColor: '#ef4444',
+    padding: '40px 24px',
   },
-  content: {
-    maxWidth: '1400px',
+  container: {
+    maxWidth: '680px',
     margin: '0 auto',
   },
-  urgentLabel: {
-    backgroundColor: '#ffffff',
-    color: '#dc2626',
-    padding: '10px 20px',
-    borderRadius: '8px',
-    fontWeight: '900',
-    fontSize: '20px',
-    letterSpacing: '0.1em',
-    textShadow: '0 1px 2px rgba(0,0,0,0.1)',
-    marginBottom: '20px',
-    display: 'inline-block',
+  titleWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    marginBottom: '24px',
   },
-  message: {
+  icon: {
+    width: '32px',
+    height: '32px',
+    color: '#ffffff',
+    flexShrink: 0,
+  },
+  title: {
+    color: '#ffffff',
+    fontSize: '28px',
+    fontWeight: '700',
+    margin: 0,
+    lineHeight: '1.2',
+  },
+  text: {
     color: '#ffffff',
     fontSize: '16px',
-    fontWeight: '500',
+    lineHeight: '1.6',
     margin: 0,
-    textAlign: 'left',
-    lineHeight: '170%',
+    whiteSpace: 'pre-line',
   },
 };
