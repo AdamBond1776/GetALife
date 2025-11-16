@@ -186,6 +186,35 @@ export interface Database {
           created_at?: string;
         };
       };
+      supporters: {
+        Row: {
+          id: string;
+          name: string;
+          email: string;
+          amount: number;
+          message: string | null;
+          payment_method: 'cashapp' | 'venmo' | 'zelle';
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          email: string;
+          amount: number;
+          message?: string | null;
+          payment_method: 'cashapp' | 'venmo' | 'zelle';
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          email?: string;
+          amount?: number;
+          message?: string | null;
+          payment_method?: 'cashapp' | 'venmo' | 'zelle';
+          created_at?: string;
+        };
+      };
     };
   };
 }
