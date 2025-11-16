@@ -61,16 +61,18 @@ export function SupportersList({ supporters, loading }: SupportersListProps) {
 const styles: Record<string, React.CSSProperties> = {
   container: {
     backgroundColor: '#111827',
-    borderRadius: '16px',
-    padding: '40px',
-    border: '1px solid #1f2937',
+    borderRadius: '20px',
+    padding: '48px',
+    border: '2px solid #1f2937',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
   },
   heading: {
-    fontSize: '32px',
+    fontSize: '36px',
     fontWeight: '800',
-    marginBottom: '32px',
+    marginBottom: '40px',
     color: '#ffffff',
     textAlign: 'center',
+    letterSpacing: '-0.02em',
   },
   loading: {
     textAlign: 'center',
@@ -87,13 +89,14 @@ const styles: Record<string, React.CSSProperties> = {
   list: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '16px',
+    gap: '20px',
   },
   supporter: {
     backgroundColor: '#1f2937',
-    borderRadius: '12px',
-    padding: '20px',
-    border: '1px solid #374151',
+    borderRadius: '14px',
+    padding: '24px',
+    border: '2px solid #374151',
+    transition: 'all 0.2s',
   },
   supporterHeader: {
     display: 'flex',
@@ -102,7 +105,7 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '8px',
   },
   name: {
-    fontSize: '18px',
+    fontSize: '20px',
     fontWeight: '700',
     color: '#ffffff',
   },

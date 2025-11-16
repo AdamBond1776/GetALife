@@ -36,25 +36,27 @@ export function FundingProgress({ totalRaised, goal }: FundingProgressProps) {
 const styles: Record<string, React.CSSProperties> = {
   container: {
     backgroundColor: '#111827',
-    borderRadius: '16px',
-    padding: '40px',
-    marginBottom: '48px',
-    border: '2px solid #dc2626',
+    borderRadius: '20px',
+    padding: '48px',
+    marginBottom: '56px',
+    border: '3px solid #dc2626',
+    boxShadow: '0 8px 32px rgba(220, 38, 38, 0.3)',
   },
   stats: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-    gap: '24px',
-    marginBottom: '32px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+    gap: '32px',
+    marginBottom: '40px',
   },
   stat: {
     textAlign: 'center',
   },
   amount: {
-    fontSize: '36px',
+    fontSize: '42px',
     fontWeight: '900',
     color: '#ef4444',
-    marginBottom: '8px',
+    marginBottom: '12px',
+    letterSpacing: '-0.02em',
   },
   label: {
     fontSize: '14px',
@@ -65,11 +67,12 @@ const styles: Record<string, React.CSSProperties> = {
   },
   progressBar: {
     width: '100%',
-    height: '24px',
+    height: '28px',
     backgroundColor: '#1f2937',
-    borderRadius: '12px',
+    borderRadius: '14px',
     overflow: 'hidden',
-    marginBottom: '16px',
+    marginBottom: '20px',
+    border: '2px solid #374151',
   },
   progressFill: {
     height: '100%',
@@ -79,8 +82,9 @@ const styles: Record<string, React.CSSProperties> = {
   },
   percentage: {
     textAlign: 'center',
-    fontSize: '18px',
-    fontWeight: '700',
+    fontSize: '20px',
+    fontWeight: '800',
     color: '#ffffff',
+    letterSpacing: '-0.01em',
   },
 };

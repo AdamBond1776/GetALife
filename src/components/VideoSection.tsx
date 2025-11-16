@@ -18,33 +18,35 @@ export function VideoSection() {
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    marginBottom: '48px',
+    marginBottom: '56px',
   },
   videoPlaceholder: {
     width: '100%',
     aspectRatio: '16 / 9',
-    backgroundColor: '#1f2937',
-    borderRadius: '16px',
+    backgroundColor: '#111827',
+    borderRadius: '20px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     border: '3px dashed #374151',
-    marginBottom: '16px',
+    marginBottom: '20px',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
   },
   placeholderContent: {
     textAlign: 'center',
     padding: '40px',
   },
   icon: {
-    fontSize: '64px',
-    marginBottom: '16px',
-    opacity: 0.5,
+    fontSize: '80px',
+    marginBottom: '20px',
+    opacity: 0.4,
+    color: '#ef4444',
   },
   text: {
-    fontSize: '20px',
-    fontWeight: '600',
-    color: '#9ca3af',
-    marginBottom: '8px',
+    fontSize: '22px',
+    fontWeight: '700',
+    color: '#d1d5db',
+    marginBottom: '12px',
   },
   subtext: {
     fontSize: '14px',

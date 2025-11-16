@@ -44,25 +44,28 @@ export function ProjectInfo() {
 const styles: Record<string, React.CSSProperties> = {
   container: {
     backgroundColor: '#111827',
-    borderRadius: '16px',
-    padding: '40px',
-    marginBottom: '48px',
-    border: '1px solid #1f2937',
+    borderRadius: '20px',
+    padding: '48px',
+    marginBottom: '56px',
+    border: '2px solid #1f2937',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
   },
   section: {
-    marginBottom: '32px',
+    marginBottom: '40px',
   },
   heading: {
-    fontSize: '32px',
+    fontSize: '36px',
     fontWeight: '800',
-    marginBottom: '20px',
+    marginBottom: '24px',
     color: '#ffffff',
+    letterSpacing: '-0.02em',
   },
   subheading: {
-    fontSize: '24px',
+    fontSize: '26px',
     fontWeight: '700',
-    marginBottom: '16px',
+    marginBottom: '20px',
     color: '#ef4444',
+    letterSpacing: '-0.01em',
   },
   text: {
     fontSize: '18px',
